@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router'
 import { Field } from 'redux-form'
 import FormInput from './FormInput'
+import FormSelect from './FormSelect'
 
 class Register extends React.Component {
   constructor(props) {
@@ -11,7 +12,10 @@ class Register extends React.Component {
 
   handleRegistration(event) {
     console.log("registering user")
-    const { email, password, name } = this.props.formValues
+    const { email, password, name, phoneno } = this.props.formValues
+
+    //so far, we've to get the countrycode from the DOM, since it's not yet reflected in the Redux state tree
+    const countryno = $('#countries-input-0').val()
     this.props.signup(email, password, { name } )
   }
 
@@ -20,6 +24,7 @@ class Register extends React.Component {
     const disabled = pristine || submitting || invalid
 
     let buttonState = disabled ? {disabled:'disabled'} : {}
+    const countryparams = {'data-show-as':'number'}
 
     return (
       <div>
@@ -30,6 +35,15 @@ class Register extends React.Component {
             <form className="pure-form pure-form-stacked form form--wide" onSubmit={handleSubmit(this.handleRegistration)}>
               <div className="form-field">
                 <Field label="Fullname" placeholder="enter your full name" name="name" component={FormInput} type="text" />
+              </div>
+
+              <div className="form-field">
+                <div className="pure-g">
+                  <Field name="countrycode" label="Country" id="authy-countries" className="pure-u-5-24" component={FormSelect} params={countryparams} type="select"/>
+                  <div className="pure-u-19-24 register-phone-wrapper">
+                    <Field label="Phone number" placeholder="your number" name="phoneno" component={FormInput} type="text" className="pure-u-22-24 register-phone" />
+                  </div>
+                </div>
               </div>
 
               <div className="form-field">

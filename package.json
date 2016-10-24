@@ -8,6 +8,7 @@
     "test:watch": "npm run test -- --watch --watch-extensions js"
   },
   "devDependencies": {
+    "authy": "^1.2.0",
     "babel-core": "6.x.x",
     "babel-plugin-react-require": "2.x.x",
     "babel-polyfill": "6.x.x",
