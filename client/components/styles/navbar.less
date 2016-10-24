@@ -1,0 +1,68 @@
+@import 'vars';
+
+/*-----------------------
+ * HEADER
+ *----------------------*/
+.navbar {
+  height: 40px;
+  __background-color: #026aa7;
+  background-color: #3f51b5;
+  background-color: #303f9f;
+  display: flex;
+  align-items: center;
+  color: #fff;
+  padding: 0 @pad-medium;
+}
+
+.navbar-title {
+  font-size: 1.25rem;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+}
+@media (min-width: @v-medium) {
+  .navbar-title {
+    justify-content: flex-start;
+  }
+}
+
+
+/*=======================
+ * navigation
+ *-----------------------*/
+
+.navbar-items {
+  display: none;
+  text-align: center;
+}
+@media (min-width: @v-small) {
+  .navbar-items {
+    display: block;
+  }
+}
+@media (min-width: @v-medium) {
+  .navbar-items {
+    text-align: right;
+  }
+}
+
+.navigation {
+  position: fixed;
+  width: 0;
+  left: 0;
+  top: 0;
+  text-transform: uppercase;
+  font-size: 1rem;
+  }
+  @media (min-width: @v-medium) {
+    .navigation {
+      position: relative;
+      width: inherit;
+    }
+  }
+
+
+.navigation-item {
+  padding-left: 10px;
+  padding-right: 10px;
+}

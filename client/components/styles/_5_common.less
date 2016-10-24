@@ -1,0 +1,139 @@
+@import 'vars';
+
+html, body, * {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: @secondaryFont, sans-serif !important;
+  font-weight: 300;
+  font-size: 1em;
+  line-height:1.2em;
+}
+
+.navigation,
+.title,
+.section-title,
+h1,h2,h3,h4,h5 {
+  font-family: @primaryFont, sans-serif !important;
+  font-weight:normal;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+h1 {
+  font-size: 1.25rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+  margin: .6em 0;
+}
+
+/* common resets */
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: @base-color;
+}
+
+a, a:visited {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.pull-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+.structural {
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.liquid {
+  width: 100%;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 @pad-medium;
+}
+@media (min-width: @v-large) {
+  .container {
+    max-width:1270px;
+  }
+}
+.container--unpadded {
+  padding: 0;
+}
+
+.shaded {
+  background-color: @bgLight;
+}
+
+.section {
+  padding: 2em 0;
+}
+.section-header {
+  text-align:center;
+  margin-bottom: 1em;
+}
+
+.spinner {
+  text-align: center;
+}
+
+.cameo {
+  border-radius: 50%;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+
+.padded-sm {
+  padding: 0.5em;
+}
+
+.padded {
+  padding: 1em;
+}
+
+.padded-lg {
+  padding: 2em;
+}
+
+.copyright {
+  text-align: center;
+}
+
+.form--wide {
+  input:not([type]),
+  input[type=text],
+  input[type=password],
+  textarea {
+    width: 100%;
+  }
+}
