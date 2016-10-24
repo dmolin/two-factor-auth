@@ -24,15 +24,16 @@ function validate(values) {
   errors.name = required(values.name)
   errors.email = required(values.email) || validations.isEmail(values.email)
   errors.password = required(values.password) || validations.isPassword(values.password)
+  errors.password_confirm = required(values.password_confirm) || validations.isMatchingPassword(values.password_confirm, values.password)
 
   return errors
 }
 
 const reduxFormConfig = {
   form: 'RegisterForm',
-  fields: ['name', 'email','password'],
+  fields: ['name', 'email','password', 'password_confirm'],
   validate,
-  syncBlurFields: ['name', 'email','password']
+  syncBlurFields: ['name', 'email','password', 'password_confirm']
 }
 
 const connectedForm = reduxForm(reduxFormConfig)(Register)

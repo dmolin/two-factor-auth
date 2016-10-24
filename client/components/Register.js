@@ -40,6 +40,10 @@ class Register extends React.Component {
                 <Field label="Password" name="password" placeholder="enter your password" component={FormInput} type="password" />
               </div>
 
+              <div className="form-field">
+                <Field label="Confirm Password" name="password_confirm" placeholder="retype your password" component={FormInput} type="password" />
+              </div>
+
               <div className="pull-right">
                 <button className="pure-button button-success button-primary" type="submit" {...buttonState}>Register</button>
               </div>
