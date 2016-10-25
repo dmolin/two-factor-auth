@@ -12,6 +12,7 @@ export default function* signupWatcher() {
           password:action.password,
           profile: action.profile
       })
+      yield call(denodeify(Meteor.call), "completeUserReg", Meteor.userId())
       Meteor.logoutOtherClients()
     } catch(error) {
       swal('signup failed', error.reason || "please check your data and try again", "error")

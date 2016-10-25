@@ -15,9 +15,19 @@ class Register extends React.Component {
     const { email, password, name, phoneno } = this.props.formValues
 
     //so far, we've to get the countrycode from the DOM, since it's not yet reflected in the Redux state tree
-    const countryno = $('#countries-input-0').val()
-    this.props.signup(email, password, { name } )
+    const countrycode = $('#countries-input-0').val()
+    this.props.signup(email, password, { name, phoneno, countrycode } )
   }
+
+	componentDidUpdate() {
+		// super hacky, but it seems to be the only way to make Authy fields work in a
+		// dynamic DOM environment
+		setTimeout(() => {
+			if ($('#countries-input-0').length === 0) {
+				Authy.UI.instance().init()
+			}
+		}, 100)
+	}
 
   render() {
     const { handleSubmit, pristine, invalid, submitting } = this.props
