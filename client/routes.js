@@ -5,7 +5,6 @@ import Login from './containers/Login'
 import Register from './containers/Register'
 import NotFound from './components/NotFound'
 import CompleteRegistration from './containers/CompleteRegistration'
-import LoginTokenValidation from './containers/LoginTokenValidation'
 
 function _augment(configArray) {
   function addOnEnter(entry) {
@@ -46,9 +45,6 @@ function publicRoutes() {
   }, {
     path: '/complete-registration',
     component: CompleteRegistration
-  }, {
-    path: '/validate-token',
-    component: LoginTokenValidation
   }]
 }
 

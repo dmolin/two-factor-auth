@@ -13,16 +13,6 @@ class CompleteRegistration extends React.Component {
     this.props.validateToken(Meteor.user().profile.authyId, values.token)
   }
 
-  componentDidUpdate() {
-    /*
-    if (this.props.loginState === LoginStates.SIGNING_UP) {
-      console.log("Registration completed. go to home")
-      //transition to home
-      browserHistory.push('/home')      
-    }
-    */
-  }
-
   render() {
     const { handleSubmit } = this.props
 
