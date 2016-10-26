@@ -1,0 +1,11 @@
+{
+  "private": {
+    "testEnvironment": true,
+    "authy": {
+      "apiKey": "DEVAPIKEY",
+      "apiUrl": "http://sandbox-api.authy.com"
+    }
+  },
+  "public": {
+  }
+}

@@ -9,7 +9,7 @@ import validations,{ required } from '../../lib/utils/validations'
 function mapStateToProps(state) {
   return {
     loginState: state.auth.state,
-    formValues: (state.form.LoginForm && state.form.LoginForm.values) || {}
+    formValues: (state.form && state.form.LoginForm && state.form.LoginForm.values) || {}
   }
 }
 
@@ -27,14 +27,15 @@ function validate(values) {
   //when logging in, no password checking is done except for presence, since we don't want to give up any
   //information that might help hackers to guess a password
   errors.password = required(values.password)
+  errors.token = required(values.token)
   return errors
 }
 
 const reduxFormConfig = {
   form: 'LoginForm',
-  fields: ['email', 'password'],
+  fields: ['email', 'password', 'token'],
   validate,
-  syncBlurFields: ['email','password']
+  syncBlurFields: ['email','password', 'token']
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(reduxForm(reduxFormConfig)(Login))

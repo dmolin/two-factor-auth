@@ -4,6 +4,8 @@ import authCheck from './middlewares/requireAuth'
 import Login from './containers/Login'
 import Register from './containers/Register'
 import NotFound from './components/NotFound'
+import CompleteRegistration from './containers/CompleteRegistration'
+import LoginTokenValidation from './containers/LoginTokenValidation'
 
 function _augment(configArray) {
   function addOnEnter(entry) {
@@ -22,15 +24,32 @@ function redirect (from, to) {
   return {
     path: from,
     onEnter: (nextState, transition) => {
+      console.log("redirecting to ", to)
       transition(to)
     }
   }
 }
 
-function genericRules() {
+function redirectedRoutes() {
   return [
     redirect("/", "/home")
   ]
+}
+
+function publicRoutes() {
+  return [{
+    path: '/login',
+    component: Login
+  }, {
+    path: '/register',
+    component: Register
+  }, {
+    path: '/complete-registration',
+    component: CompleteRegistration
+  }, {
+    path: '/validate-token',
+    component: LoginTokenValidation
+  }]
 }
 
 function appRoutes() {
@@ -41,18 +60,18 @@ function appRoutes() {
       component: Home
     },
     childRoutes: []
-  }, {
-    path: '/login',
-    component: Login
-  }, {
-    path: '/register',
-    component: Register
-  }, {
+  }]
+}
+
+function unknownRoutes() {
+  return [{
     path:'*', component: NotFound
   }]
 }
 
 export const routes = [].concat(
-    genericRules(), 
-    _augment(appRoutes())
+    publicRoutes(),
+    _augment(appRoutes()),
+    redirectedRoutes(),
+    unknownRoutes()
 )

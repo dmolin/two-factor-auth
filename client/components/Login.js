@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router'
+import {Link, browserHistory} from 'react-router'
 import LoginStates from '../constants/LoginStates'
 import { Field } from 'redux-form'
 import FormInput from './FormInput'
@@ -11,9 +11,17 @@ class Login extends React.Component {
   }
 
   handleLogin(formValues) {
-    const { email, password } = formValues
+    const { email, password, token } = formValues
 
-    this.props.login(email, password)
+    this.props.login(email, password, token)
+  }
+
+  componentDidUpdate() {
+    if (this.props.loginState === 'LOGGING_AUTH') {
+      console.log("Proceeding to validation step 2")
+      //transition to login step 2
+      browserHistory.push('/validate-token')      
+    }
   }
 
   render() {
@@ -36,6 +44,10 @@ class Login extends React.Component {
 
               <div className="form-field">
                 <Field label="Password" placeholder="enter your password" name="password" component={FormInput} type="password" />
+              </div>
+
+              <div className="form-field">
+                <Field label="Authy Code" placeholder="enter the code in your Authy App" name="token" component={FormInput} type="text" />
               </div>
 
               <div className="pull-right">

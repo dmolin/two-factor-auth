@@ -1,9 +1,10 @@
 export const ACTION_LOGIN = 'LOGIN'
 
-export default function login(email, password) {
+export default function login(email, password, token) {
   return {
     type: ACTION_LOGIN,
-    email: email,
-    password: password
+    email,
+    password,
+    token
   }
 }
