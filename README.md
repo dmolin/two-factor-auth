@@ -9,6 +9,13 @@ Simple Meteor App template with sign-up / sign-in and 2 factor auth (via Authy)
 - React
 - Twilio Authy
 
+### Run the app
+
+just do an npm i
+followed by a meteor run --settings config/development/settings.json
+
+You need to tweak settings.json using a real Authy api key
+
 ### Flow ###
 
 2 Step Authentication has been achieved by tweaking the login flow present in Meteor, in order to get an atomic operation resulting from both the validation of the user account in Mongo AND the validation of the token via Authy.
