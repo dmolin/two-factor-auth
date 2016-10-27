@@ -11,8 +11,8 @@ Simple Meteor App template with sign-up / sign-in and 2 factor auth (via Authy)
 
 ### Run the app
 
-just do an npm i
-followed by a meteor run --settings config/development/settings.json
+just do an `npm i`
+followed by `meteor run --settings config/development/settings.json`
 
 You need to tweak settings.json using a real Authy api key
 
