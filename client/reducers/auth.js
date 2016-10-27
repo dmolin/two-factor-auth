@@ -2,7 +2,6 @@ import {ACTION_LOGIN} from '../actions/login'
 import {ACTION_LOGGED_IN} from '../actions/loggedIn'
 import {ACTION_LOGGED_OUT} from '../actions/loggedOut'
 import {ACTION_SIGNUP} from '../actions/signup'
-import {ACTION_LOGIN_AUTH} from '../actions/loginAuth'
 import LoginStates from '../constants/LoginStates'
 
 export const initialState = {
@@ -16,8 +15,6 @@ export default function(state = initialState, action) {
   switch(type) {
     case ACTION_LOGIN: 
       return Object.assign({}, state, {state: LoginStates.LOGGING_IN})
-    case ACTION_LOGIN_AUTH:
-      return Object.assign({}, state, {state: LoginStates.LOGGING_AUTH, authyId: action.authyId })
     case ACTION_LOGGED_IN:
       return Object.assign({}, state, {state: LoginStates.LOGGED_IN, data: action.data })
     case ACTION_LOGGED_OUT:

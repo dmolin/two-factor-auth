@@ -11,14 +11,6 @@ export default function* signupWatcher() {
     console.log("validating user ", action);
     try {
       const result = yield call(denodeify(Meteor.call), 'verifyToken', action.authyId, action.token)
-  
-      /*
-      // if we're here because we're logging in (step 2), then we transition to 'logged_in'
-      if (['LOGGING_AUTH', 'SIGNING_UP'].indexOf(getStore().getState().auth.state) >= 0) {
-        console.log("signup OR login completed and validated")
-        browserHistory.push('/home')
-      }
-      */
       yield put(loggedIn(Meteor.user()))
       browserHistory.push('/home')
     } catch(error) {

@@ -4,9 +4,7 @@ import {getStore} from '../../store'
 import {browserHistory} from 'react-router'
 
 import {ACTION_LOGIN} from '../login'
-import loggedIn from '../loggedIn'
 import loggedOut from '../loggedOut'
-import loginAuth from '../loginAuth'
 import denodeify from '../../../lib/utils/denodeify'
 
 export default function* loginWatcher() {
@@ -19,7 +17,6 @@ export default function* loginWatcher() {
     try {
       yield call(denodeify(Meteor.loginWithToken), username, password, token)
       Meteor.logoutOtherClients()
-      //browserHistory.push('/validate-token')
     } catch(error) {
       /*
        * this must be changed for a purer approach: just dispatch the POPUP_MESSAGE_SHOW event with
