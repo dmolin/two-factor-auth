@@ -27,7 +27,8 @@ function validate(values) {
   //when logging in, no password checking is done except for presence, since we don't want to give up any
   //information that might help hackers to guess a password
   errors.password = required(values.password)
-  errors.token = required(values.token)
+  //token can be null. this can be the case when coming back to complete the 2-step registration process
+  //errors.token = required(values.token)
   return errors
 }
 

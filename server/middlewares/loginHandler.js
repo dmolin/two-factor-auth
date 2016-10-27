@@ -19,6 +19,14 @@ Accounts.registerLoginHandler((loginRequest) => {
   }
 
   // check token with Authy
+  // if we're still registering the token can be null
+  if (user.profile.registrationStatus !== 'validated') {
+    console.log("Login partially completed. user still needs to pass authy challenge")
+    // request SMS for completing the registration flow
+    authyRequestSMS(user.profile.authyId)
+    return result;
+  }
+
   try {
     console.log("verify", user.profile.authyId, loginRequest.token)
 
