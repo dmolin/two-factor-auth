@@ -3,9 +3,9 @@ Two-factor-auth
 
 Simple Meteor App skeleton with sign-up / sign-in and 2 factor auth (via Authy)
 
-The App is live <a href="http://tfa.davidemolin.com" target="_blank">here</a>
+The App is live [here](http://tfa.davidemolin.com)
 
-You can also see a video demonstrating the proof-of-concept <a href="https://vimeo.com/189141783" target="_blank">here</a>
+You can also see a video demonstrating the proof-of-concept [here](https://vimeo.com/189141783)
 
 
 ### Tech Stack ###
