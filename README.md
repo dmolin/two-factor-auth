@@ -12,6 +12,8 @@ You can also see a video demonstrating the proof-of-concept [here](https://vimeo
 
 - Meteor 1.4.2
 - React
+- Redux + Redux Saga (async/await)
+- ES6
 - Twilio Authy
 
 ### Run the app
