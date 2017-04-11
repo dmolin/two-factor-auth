@@ -7,6 +7,8 @@ The App is live [here](http://tfa.davidemolin.com)
 
 You can also see a video demonstrating the proof-of-concept [here](https://vimeo.com/189141783)
 
+[![Video Screenshot](/README/authy.png?raw=true)](https://vimeo.com/189141783)
+
 
 ### Tech Stack ###
 
